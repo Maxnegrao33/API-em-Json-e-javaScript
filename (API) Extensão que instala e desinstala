@@ -1,0 +1,24 @@
+{
+    "manifest_version":3,
+    "name": "Instala e Desinstala",
+    "version": "1.0",
+    "description": "Extensão que Instala e Desinstala",
+    "background":{
+        "service_worker": "background.js"
+    },
+    "permissions": ["tabs"]
+}
+
+
+//Integrar com APi do Chrome
+//chrome.
+chrome.runtime.onInstalled.addListener((details) =>{
+    if(details.reason == "install"){
+        console.log("Instalado")
+        chrome.tabs.create({url:"https://sp.senac.br"})
+    }
+})
+
+chrome.runtime.setUninstallURL("https://google.com.br")
+
+
